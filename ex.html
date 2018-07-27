@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+
+        /* reset.css */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        /* base css */
+
+        body {
+            background: lightgrey;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+        /* tab css */
+
+        .tab {
+            width: 500px;
+            background: white;
+        }
+
+        .tab > .tab-title {
+            display: flex;
+        }
+
+        .tab > .tab-title > li {
+            width:20%;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .tab > .tab-title > li.selected {
+            font-weight: 600;
+            border-bottom: 3px solid deepskyblue;
+        }
+
+        .tab > .tab-content {
+            background: white;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .tab > .tab-content > div {
+            display: none;
+        }
+
+        .tab > .tab-content > div.selected {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<div class="content">
+    <div class="tab">
+        <ul class="tab-title">
+            <li class="selected">综合</li>
+            <li>用户</li>
+            <li>话题</li>
+            <li>专栏</li>
+            <li>Live</li>
+            <li>私家课</li>
+            <li>电子书</li>
+        </ul>
+        <div class="tab-content">
+            <div class="selected">我是综合</div>
+            <div>我是用户</div>
+            <div>我是话题</div>
+            <div>我是专栏</div>
+            <div>我是Live</div>
+            <div>我是私家课</div>
+            <div>我是电子书</div>
+        </div>
+    </div>
+</div>
+<script>
+    /*
+    *
+    * */
+    window.onload = function () {
+        tab();
+    }
+
+    function tab() {
+        // build html
+
+
+        // 获取 dom 元素
+        var titleEles = document.querySelectorAll('.tab > .tab-title > li');
+        var contentEles = document.querySelectorAll('.tab > .tab-content > div');
+
+        // 注册事件
+        titleEles.forEach((ele, index) => {
+            ele.addEventListener('click', (event) => {
+                clearElesClass(titleEles, 'selected');
+                clearElesClass(contentEles, 'selected');
+
+                event.target.classList.add('selected');
+                contentEles[index].classList.add('selected');
+
+            }, false);
+        });
+
+
+        // 工具函数
+        /**
+         * @name clearElesClass
+         * @desc 清除元素上指定的样式
+         * @param eles Dom Elements
+         * @param className String
+         * */
+        function clearElesClass(eles, className) {
+            eles.forEach(ele => {
+                ele.classList.remove(className);
+            });
+        }
+    }
+
+</script>
+</body>
+</html>

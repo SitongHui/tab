@@ -3,120 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>tab切换</title>
-    <style>
-        body,ul,li{
-            margin:0;
-            padding:0;
-        }
-        body{
-            background: #eeeeee;
-        }
-        li{
-            list-style:none;
-        }
-        a{
-            text-decoration: none;
-            color:black;
-        }
-        .title{
-            width:1200px;
-            margin:0 auto;
-            background: #fff;
-        }
-        .title>span{
-            display: inline-block;
-            padding: 20px 0;
-            margin:0 40px;
-        }
-        .box{
-            width:1200px;
-            margin:10px auto;
-        }
-        .block{
-            width:1200px;
-            height:200px;
-            background: #fff;
-            position:absolute;
-        }
-        .nav_list>li{
-            display: none;
-        }
-        .current{
-            font-weight: bold;
-            border-bottom:3px solid #0084ff;
-        }
-        .blockbox{
-            display: block!important;
-        }
-    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+
 </head>
 <body>
-<div class="container">
-    <div class="title">
-        <span class="current">讨论</span>
+<div class="tab">
+    <div class="tab-title">
+        <span class="selected">讨论</span>
         <span>精华</span>
         <span>等待回答</span>
         <span>用户</span>
         <span>话题</span>
         <span>专栏</span>
     </div>
-    <div class="box">
-        <ul class="nav_list">
-            <li class="blockbox">
-                <div class="block">
-                    <h2>这是讨论页面</h2>
-                </div>
-            </li>
-            <li>
-                <div class="block">
-                    <h2>这是精华页面</h2>
-                </div>
-            </li>
-            <li>
-                <div class="block">
-                    <h2>这是等待回答页面</h2>
-                </div>
-            </li>
-            <li>
-                <div class="block">
-                    <h2>这是用户页面</h2>
-                </div>
-            </li>
-            <li>
-                <div class="block">
-                    <h2>这是话题页面</h2>
-                </div>
-            </li>
-            <li>
-                <div class="block">
-                    <h2>这是专栏页面</h2>
-                </div>
-            </li>
-        </ul>
-    </div>
+
+    <ul class="tab-content">
+        <li class="selected">
+            <h2>这是讨论页面</h2>
+        </li>
+        <li>
+            <h2>这是精华页面</h2>
+        </li>
+        <li>
+            <h2>这是等待回答页面</h2>
+        </li>
+        <li>
+            <h2>这是用户页面</h2>
+        </li>
+        <li>
+            <h2>这是话题页面</h2>
+        </li>
+        <li>
+            <h2>这是专栏页面</h2>
+        </li>
+    </ul>
 
 </div>
-<script>
-    window.onload=function(){
-        var title=document.getElementsByClassName("title")[0];
-        var navlist=document.getElementsByClassName("nav_list")[0];
-        var titlelist=document.getElementsByTagName("span");
-        var blocklist=document.getElementsByTagName("li");
-        for(var i=0;i<titlelist.length;i++){
-            titlelist[i].index=i;
-            titlelist[i].onclick=function(){
-                for(var j=0;j<titlelist.length;j++) {
-                    titlelist[j].className = "";
-                    blocklist[j].className="";
-                }
-                this.className="current";
-                blocklist[this.index].className="blockbox";
-                }
-            }
 
-
-        }
-
-</script>
 </body>
 </html>
