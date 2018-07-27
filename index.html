@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab切换</title>
+    <style>
+        body,ul,li{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background: #eeeeee;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        .container{
+            background: #fff;
+        }
+        .title{
+            width:1200px;
+            margin:0 auto;
+        }
+        .title>span{
+            display: inline-block;
+            padding: 20px 0;
+            font-size:16px;
+            margin:0 20px;
+        }
+        .box{
+            width:1200px;
+            margin:10px auto;
+        }
+        .block{
+            width:400px;
+            height:200px;
+            background: #fff;
+            position:absolute;
+        }
+        .nav_list>li{
+            display: none;
+        }
+        .current{
+            font-weight: bold;
+            border-bottom:3px solid #0084ff;
+        }
+        .blockbox{
+            display: block!important;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="title">
+        <span class="current">讨论</span>
+        <span>精华</span>
+        <span>等待回答</span>
+    </div>
+    <div class="box">
+        <ul class="nav_list">
+            <li class="blockbox">
+                <div class="block">
+                    <h2>这是讨论页面</h2>
+                </div>
+            </li>
+            <li>
+                <div class="block">
+                    <h2>这是精华页面</h2>
+                </div>
+            </li>
+            <li>
+                <div class="block">
+                    <h2>这是等待回答页面</h2>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<script>
+    window.onload=function(){
+        var title=document.getElementsByClassName("title")[0];
+        var navlist=document.getElementsByClassName("nav_list")[0];
+        var titlelist=document.getElementsByTagName("span");
+        var blocklist=document.getElementsByTagName("li");
+        for(var i=0;i<titlelist.length;i++){
+            titlelist[i].index=i;
+            titlelist[i].onclick=function(){
+                for(var j=0;j<titlelist.length;j++) {
+                    titlelist[j].className = "";
+                    blocklist[j].className="";
+                }
+                this.className="current";
+                blocklist[this.index].className="blockbox";
+                }
+            }
+
+
+        }
+
+</script>
+</body>
+</html>
