@@ -12,11 +12,12 @@ function tab(){
         /*添加点击事件*/
         ele.addEventListener("click",function(event){
             /*清除标题和内容的被选中样式*/
-            clearEleStyle(titleEles,"selected");
-            clearEleStyle(contentEles,"selected");
+            clearStyle(titleEles,"selected");
+            clearStyle(conEles,"selected");
             /*添加当前选中的标题和内容的样式*/
+            alert(event.target);
             event.target.classList.add("selected");
-            contentEles[index].classList.add("selected");
+            conEles[index].classList.add("selected");
         },false)
         /*false--事件冒泡  true--事件捕获*/
     })
