@@ -15,7 +15,6 @@ function tab(){
             clearStyle(titleEles,"selected");
             clearStyle(conEles,"selected");
             /*添加当前选中的标题和内容的样式*/
-            alert(event.target);
             event.target.classList.add("selected");
             conEles[index].classList.add("selected");
         },false)
